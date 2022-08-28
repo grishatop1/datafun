@@ -51,8 +51,8 @@ async function start() {
       await typeWriter(key + ": " + value);
     }
     await typeWriter(platform.description); // 'IE 10.0 x86 (platform preview; running in IE 7 mode) on Windows Server 2008 R2 / 7 x64'
-    await typeWriter(screen.width + "x" + screen.height);
-    await typeWriter(screen.pixelDepth);
+    await typeWriter("Resolution: " + screen.width + "x" + screen.height);
+    await typeWriter(screen.pixelDepth + "bit color depth");
 }
 
 async function getIP() {
@@ -70,7 +70,7 @@ async function getIPData(ip) {
   let json = await data.json();
   let output = {
     "COUNTRY": json["country"],
-    "ISP": json["as"],
+    "ISP": "'" + json["as"] + "'",
     "LAT": json["lat"],
     "LON": json["lon"],
   }
