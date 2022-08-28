@@ -17,22 +17,6 @@ async function typeWriter(txt) {
     document.getElementById("output").innerHTML += "<br>";
   }
 
-var data = [
-    screen.width,
-    history.length,
-    decodeURIComponent(document.cookie.split(";")),
-    
-    screen.height,
-    document.width,
-    document.height,
-    innerWidth,
-    innerHeight,
-    screen.availWidth,
-    screen.availHeight,
-    screen.colorDepth,
-    screen.pixelDepth,
-];
-
 async function start() {
     document.getElementById("go").style.display = "None";
     loading_text.style.display = "";
@@ -47,7 +31,7 @@ async function start() {
     await new Promise(resolve => setTimeout(resolve, 1800))
     document.body.removeChild(loading_text);
 
-    await typeWriter(ip);
+    await typeWriter(ip)
     await typeWriter(platform.name); // 'IE'
     await typeWriter(platform.version); // '10.0'
     await typeWriter(platform.layout); // 'Trident'
