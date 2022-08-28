@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
+
+    <script src="urlgen.js" defer></script>
 </head>
+
 <body>
 
     <h2>Link Magic</h2>
-    
-    <p>You can scare your friend even more if you put additional info you know about the friend in URL that we can't detect!</p>
+
+    <p>You can scare your friend even more if you put additional info you know about the friend in URL that we can't
+        detect!</p>
 
     <p>So this is base URL: cheburek.pythonanywhere.com</p>
 
@@ -21,23 +26,39 @@
     <p>Here is a little URL generator you can use:</p>
 
     <div id="generator">
-        <input type="text" placeholder="Router Brand"><br>
-        <input type="text" placeholder="Monitor Brand"><br>
-        <input type="text" placeholder="Phone Brand"><br>
-        <input type="text" placeholder="Mouse Brand"><br>
-        <input type="checkbox" placeholder="Has Instagram">
-        <label>Your frined has instagram</label><br>
-        <input type="checkbox" placeholder="Has Instagram">
-        <label>Your frined has reddit</label><br>
-        <input type="checkbox" placeholder="Has Instagram">
-        <label>Your frined has discord</label><br>
-        <input type="checkbox" placeholder="Has Instagram">
-        <label>Your frined has twitter</label><br>
+
+        <label for="">Select router brand:</label>
+        <select name="routers" id="routers">
+            <option value="">I don't know</option>
+            <option value="a">ASUS</option>
+            <option value="z">ZTE</option>
+            <option value="t">TP-LINK</option>
+        </select>
+        <br>
+        <label for="">Select monitor brand:</label>
+        <select name="monitor" id="monitors">
+            <option value="">I don't know</option>
+            <option value="a">ASUS</option>
+            <option value="l">LG</option>
+            <option value="c">AOC</option>
+            <option value="s">SAMSUNG</option>
+            <option value="d">DELL</option>
+        </select>
+        <br>
+        <label for="">Select phone brand:</label>
+        <select name="phones" id="phones">
+            <option value="">I don't know</option>
+            <option value="i">IPhone</option>
+            <option value="x">Xiaomi</option>
+            <option value="s">Samsung</option>
+            <option value="h">Huawei</option>
+        </select><br>
 
         <button id="gen">Generate!</button>
 
         <p id="output"></p>
     </div>
-    
+
 </body>
+
 </html>
