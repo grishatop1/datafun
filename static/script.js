@@ -42,6 +42,7 @@ async function start() {
     //GOOO
     audio.play()
     loading_text.innerHTML = "PREPARING DATA FOR CHINESE GOVERNMENT..."
+    loading_text.style.fontSize = "40px"
     await new Promise(resolve => setTimeout(resolve, 1800))
     document.body.removeChild(loading_text);
 
