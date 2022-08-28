@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    start();
+document.getElementById("go").addEventListener("click", () => {
+  start();
 });
 
 let loading_text = document.getElementById("loading");
@@ -34,6 +34,8 @@ var data = [
 ];
 
 async function start() {
+    document.getElementById("go").style.display = "None";
+    loading_text.style.display = "";
     let audio = await new Promise(function(resolve, reject) {
         let audio = new Audio("media/dubstep.mp3");
         audio.addEventListener("canplay", ()=>{
