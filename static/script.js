@@ -17,7 +17,7 @@ async function typeWriter(txt) {
       document.getElementById("output").innerHTML += txt.charAt(i);
       document.getElementById("output").innerHTML += "_";
       i++;
-      await new Promise(resolve => setTimeout(resolve, 80))
+      await new Promise(resolve => setTimeout(resolve, 60))
     }
     temp = document.getElementById("output").innerHTML
     if ( temp.substring(temp.length - 1, temp.length) === "_") {
@@ -36,14 +36,18 @@ async function start() {
         });
       });
     let ip = await getIP();
+    
+    let idata = await getIPData(ip);
+
+    //GOOO
     audio.play()
     await new Promise(resolve => setTimeout(resolve, 1800))
     document.body.removeChild(loading_text);
 
     await typeWriter("IP: " + ip)
-    await typeWriter(platform.name); // 'IE'
-    await typeWriter(platform.version); // '10.0'
-    await typeWriter(platform.layout); // 'Trident'
+    for (const [key, value] of Object.entries(idata)) {
+      await typeWriter(key + ": " + value);
+    }
     await typeWriter(platform.description); // 'IE 10.0 x86 (platform preview; running in IE 7 mode) on Windows Server 2008 R2 / 7 x64'
     await typeWriter(screen.width + "x" + screen.height);
     await typeWriter(screen.pixelDepth);
@@ -54,4 +58,19 @@ async function getIP() {
     let data = await response.json()
     let ip = data["ip"]
     return ip
+}
+
+async function getIPData(ip) {
+  if (ip == "127.0.0.1") {
+    ip = "109.165.224.229"
+  }
+  let data = await fetch("http://ip-api.com/json/"+ip)
+  let json = await data.json();
+  let output = {
+    "ISP": json["as"],
+    "COUNTRY": json["country"],
+    "LAT": json["lat"],
+    "LON": json["lon"],
+  }
+  return output
 }
