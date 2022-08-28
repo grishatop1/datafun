@@ -67,8 +67,8 @@ async function getIPData(ip) {
   let data = await fetch("http://ip-api.com/json/"+ip)
   let json = await data.json();
   let output = {
-    "ISP": json["as"],
     "COUNTRY": json["country"],
+    "ISP": json["as"],
     "LAT": json["lat"],
     "LON": json["lon"],
   }
