@@ -10,9 +10,18 @@ async function typeWriter(txt) {
     if (!txt) {return;}
     let i = 0;
     while (i < txt.length) {
+      temp = document.getElementById("output").innerHTML
+      if ( temp.substring(temp.length - 1, temp.length) === "_") {
+        document.getElementById("output").innerHTML = temp.slice(0, -1)
+      }
       document.getElementById("output").innerHTML += txt.charAt(i);
+      document.getElementById("output").innerHTML += "_";
       i++;
       await new Promise(resolve => setTimeout(resolve, 80))
+    }
+    temp = document.getElementById("output").innerHTML
+    if ( temp.substring(temp.length - 1, temp.length) === "_") {
+      document.getElementById("output").innerHTML = temp.slice(0, -1)
     }
     document.getElementById("output").innerHTML += "<br>";
   }

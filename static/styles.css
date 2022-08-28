@@ -1,3 +1,9 @@
+body {
+    background: black;
+    color: #0f0;
+    font-family: monospace;
+}
+
 #output {
     font-size: 40px;
 }
