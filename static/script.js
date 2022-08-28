@@ -31,12 +31,13 @@ async function start() {
     await new Promise(resolve => setTimeout(resolve, 1800))
     document.body.removeChild(loading_text);
 
-    await typeWriter(ip)
+    await typeWriter("IP: " + ip)
     await typeWriter(platform.name); // 'IE'
     await typeWriter(platform.version); // '10.0'
     await typeWriter(platform.layout); // 'Trident'
     await typeWriter(platform.description); // 'IE 10.0 x86 (platform preview; running in IE 7 mode) on Windows Server 2008 R2 / 7 x64'
     await typeWriter(screen.width + "x" + screen.height);
+    await typeWriter(screen.pixelDepth);
 }
 
 async function getIP() {
